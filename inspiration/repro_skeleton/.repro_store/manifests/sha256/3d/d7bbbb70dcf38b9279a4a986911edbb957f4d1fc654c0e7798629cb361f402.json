@@ -1,0 +1,54 @@
+{
+  "manifest_version": 1,
+  "run_id": "sha256:3dd7bbbb70dcf38b9279a4a986911edbb957f4d1fc654c0e7798629cb361f402",
+  "timestamp_utc": "2025-11-06T16:50:56Z",
+  "step": {
+    "name": "step_example",
+    "path": "/home/andreasstillits/coding/TheCurator/repro_skeleton/examples/step_example.py",
+    "code_hash": "sha256:9d0d9166b73b6d753fde796c2e29b0abfe3f0f3ce754f1488c9a742b602efcf3"
+  },
+  "parameters": {
+    "effective": {
+      "suffix": "???"
+    },
+    "provenance": {
+      "suffix": "CLI"
+    },
+    "hash": "sha256:ec5a87d1dbfa7d6ac3508aba0e15219355a68da6a7fb7673836a421f29b14b79"
+  },
+  "environment": {
+    "summary": {
+      "python": "3.11.14",
+      "platform": "Linux-6.14.0-35-generic-x86_64-with-glibc2.39",
+      "env_vars": {
+        "TZ": "",
+        "LANG": "en_US.UTF-8",
+        "LC_ALL": "",
+        "PYTHONHASHSEED": ""
+      }
+    },
+    "hash": "sha256:17c6a1731372b472e293c41b28d44f0fcc0ba6df1050baecd7e1c7972851e83f"
+  },
+  "inputs": [
+    {
+      "logical_name": "text",
+      "type": "file",
+      "id": "5891b5b522d5df086d0ff0b110fbd9d21bb4fc7163af34d08286a2e846f6be03",
+      "origin": "adopted"
+    }
+  ],
+  "outputs": [
+    {
+      "logical_name": "result_dir",
+      "type": "dir",
+      "id": "sha256:42a10954bdfeacf59daaa5509ffdfa296fbec97832f2cbfab6429102cfe368fc",
+      "size": 9
+    }
+  ],
+  "io_summary": {},
+  "host": {},
+  "tool": {
+    "name": "repro-skeleton",
+    "version": "0.1.0"
+  }
+}
