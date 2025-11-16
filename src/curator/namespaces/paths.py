@@ -26,10 +26,12 @@ class CuratorPaths:
                 import tomllib
             except Exception:
                 raise ImportError("tomllib is required to read settings.toml (default in Python >= 3.11)")
+            # read settings.toml
             with open(self.settings_path, "rb") as settings_file:
-                settings = tomllib.load(settings_file)
+                settings = tomllib.load(settings_file) # return dictionary
+            # get storage_root from settings
             storage_root_str = settings.get("paths", {}).get(STORAGE_ROOT_NAME, ".") # if not found, use current directory "." as default
-            self.storage_root = Path(storage_root_str).expanduser().resolve()
+            self.storage_root = Path(storage_root_str).expanduser().resolve() # expand home dir ~ down to root, and resolve to absolute path
 
         self.TREASURY = self.storage_root / ".treasury"
         self.ARTIFACTS = self.TREASURY / "artifacts"
@@ -38,6 +40,7 @@ class CuratorPaths:
         self.LOGS = self.TREASURY / "logs"
         self.ALIASES = self.TREASURY / "aliases"
         self.VIEWS = self.TREASURY / "views"
+        self.TMP = self.TREASURY / "tmp"
 
     def ensure_existence(self) -> None:
         """ Ensure all necessary directories exist. """
@@ -49,6 +52,7 @@ class CuratorPaths:
             self.LOGS,
             self.ALIASES,
             self.VIEWS,
+            self.TMP,
         ]:
             path.mkdir(parents=True, exist_ok=True)
 
