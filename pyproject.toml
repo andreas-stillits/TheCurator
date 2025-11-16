@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "thecurator"
+version = "0.1.0"
+description = "A tool to bring out of the box reproducibility to python projects."
+readme = "README.md"
+requires-python = ">=3.11.*"
+license = {file = "LICENSE"}
+authors = [{name = "Andreas Stillits", email = "andreas.stillits@gmail.com"}]
+dependencies = []
+
+[project.scripts]
+curator = "curator.cli.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/curator"] 
+
+[project.optional-dependencies]
+dev = ["ruff", "mypy", "pytest"]
