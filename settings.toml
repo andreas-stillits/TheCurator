@@ -4,5 +4,5 @@ quiet = false
 
 [paths]
 data_root = "."
-storage_root = "."
+storage_root = "./test/"
 
