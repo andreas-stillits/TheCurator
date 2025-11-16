@@ -7,7 +7,7 @@ name = "thecurator"
 version = "0.1.0"
 description = "A tool to bring out of the box reproducibility to python projects."
 readme = "README.md"
-requires-python = ">=3.11.*"
+requires-python = ">=3.11"
 license = {file = "LICENSE"}
 authors = [{name = "Andreas Stillits", email = "andreas.stillits@gmail.com"}]
 dependencies = []
