@@ -20,3 +20,4 @@ packages = ["src/curator"]
 
 [project.optional-dependencies]
 dev = ["ruff", "mypy", "pytest"]
+mpi = ["mpi4py", "mpich"]

@@ -1,0 +1,17 @@
+[globals]
+log_level = "INFO"
+quiet_mode = false
+
+[paths]
+storage_root = "."
+project_root = "."
+data_root = "."
+
+[process.name1]
+parameter1 = 0.1
+parameter2 = true
+
+[process.name2]
+parameter1 = 42 
+parameter2 = "/path/to/somewhere"
+

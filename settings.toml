@@ -1,8 +1,0 @@
-[globals]
-log_level = "INFO"
-quiet = false
-
-[paths]
-data_root = "."
-storage_root = "./test/"
-
