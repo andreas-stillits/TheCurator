@@ -1,0 +1,4 @@
+
+
+
+CONSTANT = "test_string"

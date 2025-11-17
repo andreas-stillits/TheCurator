@@ -2,45 +2,25 @@
 
 Module for managing the naming of paths within the Curator system.
 
-NB: the term "storage_root" must be used in settings.toml
-
 """
 
 from __future__ import annotations
 from pathlib import Path
 
-STORAGE_ROOT_NAME = "storage_root"
-SETTINGS_PATH = Path( "./settings.toml")
-
-
 class CuratorPaths:
     """ Class to manage Curator system paths. """
 
-    def __init__(self, storage_root: Path | None = None, settings_path: Path | None = None) -> None:
+    def __init__(self, storage_root: Path) -> None:
         """ Initialize with the storage root path. """
-        self.settings_path = settings_path if settings_path is not None else SETTINGS_PATH
         self.storage_root = storage_root 
-        if self.storage_root is None:
-            # derive from settings.toml 
-            try:
-                import tomllib
-            except Exception:
-                raise ImportError("tomllib is required to read settings.toml (default in Python >= 3.11)")
-            # read settings.toml
-            with open(self.settings_path, "rb") as settings_file:
-                settings = tomllib.load(settings_file) # return dictionary
-            # get storage_root from settings
-            storage_root_str = settings.get("paths", {}).get(STORAGE_ROOT_NAME, ".") # if not found, use current directory "." as default
-            self.storage_root = Path(storage_root_str).expanduser().resolve() # expand home dir ~ down to root, and resolve to absolute path
-
         self.TREASURY = self.storage_root / ".treasury"
         self.ARTIFACTS = self.TREASURY / "artifacts"
         self.COLLECTIONS = self.TREASURY / "collections"
         self.MANIFESTS = self.TREASURY / "manifests"
         self.LOGS = self.TREASURY / "logs"
-        self.ALIASES = self.TREASURY / "aliases"
-        self.VIEWS = self.TREASURY / "views"
-        self.TMP = self.TREASURY / "tmp"
+        self.ALIASES = self.storage_root / "aliases"
+        self.VIEWS = self.storage_root / "views"
+        self.TMP = self.storage_root / "tmp"
 
     def ensure_existence(self) -> None:
         """ Ensure all necessary directories exist. """
@@ -55,4 +35,3 @@ class CuratorPaths:
             self.TMP,
         ]:
             path.mkdir(parents=True, exist_ok=True)
-
